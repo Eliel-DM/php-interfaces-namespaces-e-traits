@@ -1,7 +1,6 @@
 <?php
 
-class Titulo
-{
+abstract class Titulo {
     private array $notas;
 
     public function __construct(
@@ -12,21 +11,16 @@ class Titulo
         $this->notas = [];
     }
 
-    public function avalia(float $nota): void
-    {
+    public function avalia(float $nota): void {
         $this->notas[] = $nota;
     }
 
-    public function media(): float
-    {
+    public function media(): float {
         $somaNotas = array_sum($this->notas);
         $quantidadeNotas = count($this->notas);
 
         return $somaNotas / $quantidadeNotas;
     }
 
-    public function duracaoEmMinutos(): int
-    {
-        return 0;
-    }
+    abstract public function duracaoEmMinutos(): int;
 }
