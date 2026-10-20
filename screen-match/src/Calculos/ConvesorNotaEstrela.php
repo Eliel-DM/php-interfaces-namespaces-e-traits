@@ -1,11 +1,11 @@
 <?php
 
 class ConvesorNotaEstrela {
-    public function converte(Titulo $titulo): float {
-        $nota = $titulo->media();
+    public function converte(Avaliavel $avaliavel): float {
+        $nota = $avaliavel->media();
 
         // Realiza a conversão
 
-        return $nota;
+        return round($nota) / 2;
     }
 }
