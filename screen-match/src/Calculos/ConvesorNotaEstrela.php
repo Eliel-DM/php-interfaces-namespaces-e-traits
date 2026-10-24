@@ -2,12 +2,19 @@
 
 namespace ScreenMatch\Calculos;
 
+use ArgumentCountError;
+use DivisionByZeroError;
 use ScreenMatch\Modelo\Avaliavel;
+use Throwable;
 
 class ConvesorNotaEstrela {
     public function converte(Avaliavel $avaliavel): float {
-        $nota = $avaliavel->media();
 
-        return round($nota) / 2;
+        try {
+            $nota = $avaliavel->media();
+            return round($nota) / 2;
+        } catch (Throwable) {
+            return 0;
+        }
     }
 }
