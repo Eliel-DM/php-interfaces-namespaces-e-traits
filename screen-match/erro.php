@@ -9,7 +9,13 @@ require 'autoload.php';
 
 $serie = new Serie('Nome da serie', 2026, Genero::Acao, 7, 20, 0);
 $episodio = new Episodio($serie, 'Piloto', 1);
-//$episodio->avalia(10);
+try {
+    $episodio->avalia(45);
+    $episodio->avalia(-35);
 
-$conversor = new ConvesorNotaEstrela();
-echo $conversor->converte($episodio);
+
+    $conversor = new ConvesorNotaEstrela();
+    echo $conversor->converte($episodio);
+} catch (Exception $e) {
+    echo "Um problema aconteceu: " . $e->getMessage();
+}
